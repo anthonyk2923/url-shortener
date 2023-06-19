@@ -1,13 +1,14 @@
 const Link = require('../models/linkModel');
+const asyncHandler = require('express-async-handler');
 
 //@GET
 //all links
-async function getLinks(req, res) {
+const getLinks = asyncHandler(async (req, res) => {
   res.json(await Link.find());
-}
+});
 //@POST
 //1 link
-async function postLink(req, res) {
+const postLink = asyncHandler(async (req, res) => {
   if (!req.body.link) {
     res
       .status(400)
@@ -15,7 +16,7 @@ async function postLink(req, res) {
   } else {
     res.json(await Link.create({ link: req.body.link }));
   }
-}
+});
 
 module.exports = {
   getLinks,

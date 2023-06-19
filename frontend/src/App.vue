@@ -1,7 +1,7 @@
 <template>
   <div class="show center">
     <div class="outer ">
-      <Info />
+      <Info @submitForm="postData" />
     </div>
 
     <Backround />
@@ -16,8 +16,7 @@ export default {
   components: {
     Backround,
     Info
-  }
-
+  },
 };
 </script>
 
@@ -26,16 +25,15 @@ export default {
   height: 100vh;
   align-items: center;
   justify-content: center;
+
 }
 
 .show {
   display: flex;
-
 }
 
 .outer {
   z-index: 1;
-
 }
 
 * {
